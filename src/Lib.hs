@@ -55,6 +55,7 @@ processBlock (Para xs) m = let (xsNew, mNew) = processInlines xs m in ((Para xsN
 processBlock (LineBlock xs) m = let (xsNew, mNew) = processInlinesSquared xs m in ((LineBlock xsNew), mNew)
 processBlock (BlockQuote xs) m = let (xsNew, mNew) = processBlocks xs m in ((BlockQuote xsNew), mNew)
 processBlock (OrderedList attrs xs) m = let (xsNew, mNew) = processBlocksSquared xs m in ((OrderedList attrs xsNew), mNew)
+processBlock (BulletList xs) m = let (xsNew, mNew) = processBlocksSquared xs m in ((BulletList xsNew), mNew)
 processBlock (Header i a xs) m = let (xsNew, mNew) = processInlines xs m in ((Header i a xsNew), mNew)
 processBlock (Table a b c d e f) m = processTable (Table a b c d e f) m
 processBlock (Div attr xs) m = let (xsNew, mNew) = processBlocks xs m in ((Div attr xsNew), mNew)
